@@ -16,7 +16,7 @@ from sklearn import svm
 
 
 
-d = pd.read_csv("./testDumpFusionData.csv")
+d = pd.read_csv("./exampleData.csv")
 nuMax = d[['aucs1','aucs2']].max(axis=1)
 d['aucsMax'] = nuMax
 d['improved'] = d.aucsFused > d.aucsMax
@@ -43,7 +43,6 @@ Z = Z.reshape(xx.shape)
 plt.imshow(Z, interpolation='nearest', extent=(xx.min(), xx.max(), yy.min(), yy.max()), aspect='auto', origin='lower', cmap=plt.cm.PuOr_r)
 contours = plt.contour(xx,yy,Z, levels=[0], linewidths=2, linetypes='--')
 
-#return (d_x, d_y)
 
 plt.scatter(d_x.iloc[:,0], d_x.iloc[:,1], s=30, c=d_y, cmap=plt.cm.Paired)
 plt.xticks(())
